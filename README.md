@@ -1,7 +1,7 @@
 # StockScan SGA — Sistema de Gestión de Almacenes Inteligente
 
 <p align="center">
-<img width="966" height="526" alt="image" src="https://github.com/user-attachments/assets/afc83056-1f43-4044-ab8c-5843eee5c4ff" />
+  <img width="966" height="526" alt="StockScan SGA Banner" src="https://github.com/user-attachments/assets/afc83056-1f43-4044-ab8c-5843eee5c4ff" />
 </p>
 
 <p align="center">
@@ -16,12 +16,14 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Sprint-Sprint%202%20(En%20cierre)-F39C12?style=flat-square" alt="Sprint 2">
+  <img src="https://img.shields.io/badge/Sprint-Sprint%202%20(Completado)-27AE60?style=flat-square" alt="Sprint 2">
   <img src="https://img.shields.io/badge/JDK-21-blue?style=flat-square" alt="Java 21">
   <img src="https://img.shields.io/badge/GUI-FlatLaf%20%2F%20Swing-informational?style=flat-square" alt="FlatLaf">
   <img src="https://img.shields.io/badge/Database-SQLite-green?style=flat-square" alt="SQLite">
   <img src="https://img.shields.io/badge/License-Proprietary-red?style=flat-square" alt="Licencia">
 </p>
+
+> **Ecosistema StockScan SGA:** Este repositorio aloja el **Proyecto Integrado (PI)** (arquitectura global, persistencia SQLite, seguridad con jBCrypt, auditorías legales y documentación de sprints). Para consultar el desarrollo específico de interfaces gráficas, *Design Tokens* y gestión de eventos de bajo nivel en Java Swing, visita el repositorio complementario: **[StockScan SGA — Desarrollo de Interfaces (DII)](https://github.com/romanscriptt/stockscan-dii)**.
 
 ---
 
@@ -33,11 +35,11 @@ StockScan SGA es una solución multiplataforma orientada al control y gestión i
 
 ## Funcionalidades Principales
 
-* **Escáner Inteligente de Stock:** Identificación inmediata de productos y cajas en estanterías mediante lectura óptica con la cámara del dispositivo.
-* **Chat Interno y Comunicación:** Canal directo de mensajería en tiempo real entre administradores, supervisores y operarios de almacén o camareros.
-* **Agenda, Tareas y Check-in:** Control integral de turnos de trabajo, asignación de tareas operativas y registro digital de asistencia.
-* **Arquitectura Multi-sector:** Configuración flexible adaptada a las necesidades específicas de restaurantes, almacenes logísticos y tiendas online.
-* **Arquitectura Offline-First:** Persistencia local garantizada con sincronización en segundo plano para trabajar sin interrupciones en zonas de baja cobertura.
+- **Escáner Inteligente de Stock:** Identificación inmediata de productos y cajas en estanterías mediante lectura óptica con la cámara del dispositivo.
+- **Chat Interno y Comunicación:** Canal directo de mensajería en tiempo real entre administradores, supervisores y operarios de almacén o camareros.
+- **Agenda, Tareas y Check-in:** Control integral de turnos de trabajo, asignación de tareas operativas y registro digital de asistencia.
+- **Arquitectura Multi-sector:** Configuración flexible adaptada a las necesidades específicas de restaurantes, almacenes logísticos y tiendas online.
+- **Arquitectura Offline-First:** Persistencia local garantizada con sincronización en segundo plano para trabajar sin interrupciones en zonas de baja cobertura.
 
 ---
 
@@ -46,36 +48,29 @@ StockScan SGA es una solución multiplataforma orientada al control y gestión i
 | Hito / Sprint | Estado | Entregables Clave |
 | :--- | :---: | :--- |
 | **Sprint 1** | **Completado** | Definición de requisitos, diagrama de casos de uso, arquitectura base del sistema y prototipo inicial. |
-| **Sprint 2** | **Finalizando** | Implementación del módulo visual (Java Swing + FlatLaf), base de datos SQLite con jBCrypt, auditorías de accesibilidad (WCAG 2.1 / UNE-EN 301 549), RGPD y viabilidad legal. |
+| **Sprint 2** | **Completado** | Implementación del módulo visual (Java Swing + FlatLaf), base de datos SQLite con jBCrypt, auditorías de accesibilidad (WCAG 2.1 / UNE-EN 301 549), RGPD y viabilidad legal. |
 | **Sprint 3** | **Planificado** | Integración del motor de escaneo, comunicación en tiempo real del chat y pruebas de integración finales. |
 
 ---
 
 ## Stack Tecnológico
 
-* **Lenguaje Principal:** Java SE (JDK 21)
-* **Interfaz Gráfica (GUI):** Java Swing + FlatLaf (Look & Feel Moderno / HiDPI)
-* **Persistencia & Base de Datos:** SQLite (SQLite JDBC Driver)
-* **Seguridad & Cifrado:** jBCrypt (Hashing de contraseñas de operarios)
-* **Iconografía & UI Assets:** Lucide Icons / FontAwesome
-* **Testing & Calidad:** JUnit 5
+- **Lenguaje Principal:** Java SE (JDK 21)
+- **Interfaz Gráfica (GUI):** Java Swing + FlatLaf (Look & Feel Moderno / HiDPI)
+- **Persistencia & Base de Datos:** SQLite (SQLite JDBC Driver)
+- **Seguridad & Cifrado:** jBCrypt (Hashing de contraseñas de operarios)
+- **Iconografía & UI Assets:** Lucide Icons / FontAwesome
+- **Testing & Calidad:** JUnit 5
 
 ---
 
-## Miembros del Equipo y Roles
+## Estructura del Repositorio
 
-### Equipo Frontend
-* **Elena Sáez Lascurain** — Desarrolladora Frontend & UX/UI
-* **Álvaro** — Desarrollador Frontend
-
-### Equipo Backend
-* **Carmen Monge Montes** — Desarrolladora Backend & Base de Datos
-* **Ángel Luis Sánchez Pérez** — Desarrollador Backend & Arquitectura
-
----
-
-## Licencia y Cumplimiento Legal
-
-Este proyecto se distribuye bajo una **Licencia Propietaria Comercial (SaaS / On-Premise)**. La propiedad intelectual del código fuente, arquitectura y diseños pertenece exclusivamente al equipo desarrollador de StockScan SGA.
-
-Todas las dependencias de terceros integradas (OpenJDK, FlatLaf, SQLite, jBCrypt) disponen de licencias permisivas (Apache 2.0, MIT, GPLv2 + Classpath Exception) compatibles con el uso comercial sin transmisión de efecto copyleft.
+```text
+stockscan-pi/
+├── .github/
+│   └── PULL-REQUEST_TEMPLATE/     # Plantillas estandarizadas para revisión de código (PRs)
+├── docs/
+│   └── Memorias/                  # Documentación técnica, memorias de Sprints y auditorías legales
+├── .gitignore                     # Reglas de exclusión de archivos compilados y temporales
+└── README.md                      # Documentación general del Proyecto Integrado
