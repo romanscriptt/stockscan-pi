@@ -3,7 +3,7 @@
 * **Fecha de cierre:** DD/MM/2026
 * **Scrum Master del ciclo:** [Nombre del compañero]
 
-## 📊 Matriz de evaluación del equipo (1 a 10)
+##  Matriz de evaluación del equipo (1 a 10)
 
 > *Criterios evaluados: Cumplimiento de tareas, calidad del código/documentación, comunicación en Daily y apoyo al equipo.*
 
@@ -14,13 +14,13 @@
 | **[Compañero 3]** | 10 | 9.5 | — | 9.5 | **9.7** |
 | **[Compañero 4]** | 9.5 | 9.5 | 9.5 | — | **9.5** |
 
-## 📝 Valoración individual y aportaciones clave
+##  Valoración individual y aportaciones clave
 
 * **[Compañero 1]:** [Resumen de tareas realizadas y puntos fuertes]
 * **[Compañero 2]:** [Resumen de tareas realizadas y puntos fuertes]
 * **[Compañero 3]:** [Resumen de tareas realizadas y puntos fuertes]
 * **[Compañero 4]:** [Resumen de tareas realizadas y puntos fuertes]
 
-## 🔄 Retrospectiva
+##  Retrospectiva
 * **Qué funcionó bien:** [...]
 * **Qué mejoraremos en el próximo Sprint:** [...]
