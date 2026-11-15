@@ -1,2 +1,6 @@
 /StockScan/nbproject/private/
 /StockScan/build/
+
+# Archivos de sistema y editores
+.DS_Store
+*.code-workspace
