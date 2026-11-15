@@ -14,13 +14,13 @@
 
 *Proyecto Intermodular (PI) y Desarrollo de Interfaces (DII) — 2º DAM (Desarrollo de Aplicaciones Multiplataforma)*
 
-[📚 Índice de Documentación](docs/README.md) · [ Arquitectura MVC](docs/general/desarrollo_mvc.md) · [ Backlog](docs/general/analisis_y_backlog.md) · [💻 Código Fuente](StockScanE/)
+[Índice de Documentación](docs/README.md) · [ Arquitectura MVC](docs/general/desarrollo_mvc.md) · [ Backlog](docs/general/analisis_y_backlog.md) · [ Código Fuente](StockScanE/)
 
 </div>
 
 ---
 
-## 📖 Descripción del Proyecto
+##  Descripción del Proyecto
 
 En entornos de alta rotación como la hostelería, el comercio electrónico o la logística de distribución, el control manual del inventario genera roturas de stock, pérdidas económicas y una elevada carga operativa para el personal.
 
@@ -31,18 +31,30 @@ En entornos de alta rotación como la hostelería, el comercio electrónico o la
 
 ---
 
-## 💡 Ejemplo de Funcionamiento en un Caso Real
+## Ejemplo de Funcionamiento: El Problema Real vs. Solución StockScan SGA
 
-Imaginemos el almacén diario de un establecimiento de hostelería y distribución gestionado con **StockScan SGA**:
+### El Problema en la Operativa Diaria (Antes de StockScan)
+En un negocio de hostelería y distribución en pleno servicio (viernes a las 21:30 h), el almacén sufre tres fallos críticos cuando se gestiona de forma manual o con hojas de cálculo desactualizadas:
+1. **Stock fantasma:** El sistema dice que quedan 10 kg de café o 3 sacos de harina, pero al ir a buscarlos el estante está vacío porque nadie apuntó las salidas del turno anterior.
+2. **Roturas de stock en hora punta:** El personal descubre que falta mercancía esencial cuando ya no hay margen para reponerla, paralizando platos o pedidos de *delivery*.
+3. **Pedidos a ciegas y falta de trazabilidad:** Se compra de más (generando mermas y caducidades) o de menos, sin saber qué operario retiró el producto ni en qué franja horaria se consumió.
 
-| Referencia | Artículo | Stock Inicial | Movimiento | Tipo | Stock Final | Estado del Sistema |
+---
+
+### Cómo lo Resuelve StockScan SGA en Tiempo Real
+Con **StockScan SGA**, cada movimiento en el almacén se registra al instante mediante escaneo o atajos rápidos, actualizando el inventario en SQLite y disparando alertas visuales automáticas antes de llegar a cero:
+
+| Referencia | Artículo | Stock Inicial | Movimiento Registrado | Operario / Turno | Stock Final | Respuesta Automática de StockScan |
 | :--- | :--- | :---: | :---: | :--- | :---: | :--- |
-| `SKU-101` | Café en Grano Arábica 1kg | 15 uds | `-11 uds` | Salida (Sala) | **4 uds** |  **Alerta: Stock Mínimo (< 5)** |
-| `SKU-204` | Aceite de Oliva Virgen Extra 5L | 8 uds | `+12 uds` | Entrada (Proveedor) | **20 uds** | **Stock Óptimo** |
-| `SKU-309` | Envases Biodegradables Pack 50 | 30 uds | `-5 uds` | Salida (Delivery) | **25 uds** |  **Stock Óptimo** |
-| `SKU-412` | Harina de Fuerza 25kg | 3 uds | `-3 uds` | Salida (Obrador) | **0 uds** | **Crítico: Sin Existencias** |
+| `SKU-101` | Café en Grano Arábica 1kg | 15 uds | `-11 uds` (Salida Barra) | `op_carlos` · 18:10 | **4 uds** | **Alerta Preventiva (< 5 uds):** Aviso visual en panel para incluir en pedido de mañana |
+| `SKU-412` | Harina de Fuerza 25kg | 3 uds | `-3 uds` (Salida Obrador) | `op_lucia` · 19:45 | **0 uds** | **Bloqueo y Alerta Crítica:** Marca artículo agotado y notifica reposición urgente |
+| `SKU-204` | Aceite de Oliva Virgen Extra 5L | 8 uds | `+12 uds` (Recepción) | `op_elena` · 20:05 | **20 uds** | **Stock Restablecido:** Cierra alerta previa y actualiza valoración de inventario |
+| `SKU-309` | Envases Biodegradables Pack 50 | 30 uds | `-5 uds` (Salida Delivery) | `op_carlos` · 21:20 | **25 uds** | **Stock Óptimo:** Movimiento auditado sin fricción en menos de 2 segundos |
 
-Cada operación queda persistida con marca temporal y usuario responsable, permitiendo auditar consumos y anticipar pedidos antes de que se produzca una rotura de stock.
+### Impacto Directo en el Negocio
+- **Cero stock fantasma:** Lo que muestra la pantalla coincide al 100 % con la estantería física.
+- **Anticipación a la rotura:** Las alertas por umbral mínimo avisan *antes* de quedarse sin existencias, no cuando ya es tarde.
+- **Auditoría completa:** Cada entrada o salida queda vinculada a un usuario, fecha y hora exacta, eliminando pérdidas desconocidas.
 
 ---
 
@@ -125,7 +137,7 @@ El desarrollo se organiza de forma iterativa mediante **Scrum**, integrando los 
 | **Elena Sáez** | [@elenasaez25](https://github.com/elenasaez25) | Lógica de negocio, persistencia SQLite y control de calidad |
 | **Ángel Luis Sánchez** | [@angelluissanchez25](https://github.com/angelluissanchez25) | Desarrollo de módulos operativos, pruebas funcionales y Scrum |
 
-### 🔄 Ciclo de Trabajo en Cada Sprint
+###  Ciclo de Trabajo en Cada Sprint
 
 ```text
 Product Backlog ──▶ Sprint Planning ──▶ Desarrollo & Daily Scrum ──▶ Sprint Review & Retrospectiva
