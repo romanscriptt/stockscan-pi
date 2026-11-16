@@ -1,10 +1,10 @@
-# 📚 Documentación del Proyecto — StockScan SGA
+#  Documentación del Proyecto — StockScan SGA
 
-## 📌 Documentación General
+##  Documentación General
 * [Análisis de Mercado y Product Backlog](general/analisis_y_backlog.md)
 * [Arquitectura y Desarrollo MVC / MVVM](general/desarrollo_mvc.md)
 
-## 🗓️ Seguimiento por Sprints (DII y PI)
+##  Seguimiento por Sprints (DII y PI)
 
 | Sprint | Desarrollo de Interfaces (DII) | Proyecto Intermodular (PI) |
 | :--- | :--- | :--- |
