@@ -3,21 +3,29 @@ package com.stockscan.view.events;
 import java.util.EventObject;
 
 /**
+ * Evento de StockScan que contiene el código de la acción y su mensaje.
+ * Ambos valores quedan fijados al construir el evento. El oyente puede consultar
+ * el origen a través de {@link #getSource()}.
  *
  * @author Álvaro López
  * @version 1.0
+ * @see StockScanListener
  */
 public class StockScanEvent extends EventObject {
 
+    /** Código asociado a la acción. */
     private final String codigo;
+
+    /** Texto de la notificación. */
     private final String mensaje;
 
     /**
-     * Crea un nuevo evento con el origen, el código del producto y un mensaje.
+     * Crea un evento con el origen y los datos de la notificación.
      *
-     * @param source  Componente que lanza el evento.
-     * @param codigo  Código del artículo o ubicación.
-     * @param mensaje Texto explicativo de lo que ha pasado.
+     * @param source objeto que origina el evento
+     * @param codigo código asociado a la acción, que puede ser {@code null}
+     * @param mensaje texto de la notificación, que puede ser {@code null}
+     * @throws IllegalArgumentException si {@code source} es {@code null}
      */
     public StockScanEvent(Object source, String codigo, String mensaje) {
         super(source);
@@ -26,18 +34,18 @@ public class StockScanEvent extends EventObject {
     }
 
     /**
-     * Devuelve el código del elemento.
+     * Devuelve el código asociado a la acción.
      *
-     * @return El código en texto.
+     * @return código recibido al construir el evento, o {@code null} si no se indicó
      */
     public String getCodigo() {
         return codigo;
     }
 
     /**
-     * Devuelve el mensaje de la notificación.
+     * Devuelve el texto de la notificación.
      *
-     * @return El mensaje en texto.
+     * @return mensaje recibido al construir el evento, o {@code null} si no se indicó
      */
     public String getMensaje() {
         return mensaje;

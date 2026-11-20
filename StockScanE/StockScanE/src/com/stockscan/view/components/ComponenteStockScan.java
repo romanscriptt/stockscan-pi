@@ -7,17 +7,36 @@ import java.util.List;
 import javax.swing.JPanel;
 
 /**
+ * Panel Swing que distribuye notificaciones de StockScan a los oyentes registrados.
+ * Registra un oyente con {@link #addStockScanListener(StockScanListener)} para
+ * recibir los datos enviados mediante {@link #notificarObservadores(String, String)}.
+ *
+ * <p>Usa el componente desde el hilo de despacho de eventos de Swing (EDT).</p>
  *
  * @author Álvaro López
  * @version 1.0
+ * @see StockScanEvent
+ * @see StockScanListener
  */
 public class ComponenteStockScan extends JPanel {
 
-    // Lista privada donde guardo todos los controladores que se han suscrito
+    /** Oyentes suscritos, en orden de registro. */
     private final List<StockScanListener> observadores = new ArrayList<>();
 
-    /**     
-     * @param listener 
+    /**
+     * Crea un panel con la configuración predeterminada de {@link JPanel}
+     * y sin oyentes registrados.
+     */
+    public ComponenteStockScan() {
+        super();
+    }
+
+    /**
+     * Registra un oyente para recibir las próximas notificaciones.
+     * Se ignora la llamada si el oyente es nulo o si ya hay un oyente igual
+     * registrado según {@link Object#equals(Object)}.
+     *
+     * @param listener oyente que recibirá los eventos
      */
     public void addStockScanListener(StockScanListener listener) {
         // Compruebo que no sea nulo y que no esté ya añadido para evitar avisos duplicados
@@ -26,18 +45,28 @@ public class ComponenteStockScan extends JPanel {
         }
     }
 
-    /**     
-     * @param listener Observador que se quiere borrar.
+    /**
+     * Retira el oyente registrado que coincida según {@link Object#equals(Object)}.
+     * La llamada no tiene efecto si el oyente es nulo o no está registrado.
+     *
+     * @param listener oyente que dejará de recibir eventos
      */
     public void removeStockScanListener(StockScanListener listener) {
         observadores.remove(listener);
     }
 
     /**
-     * Avisa a todos los observadores registrados enviándoles el código y el mensaje.
+     * Entrega un mismo {@link StockScanEvent} a los oyentes en orden de registro.
+     * El panel es el origen del evento. Si no hay oyentes, la llamada termina
+     * sin crear el evento.
      *
-     * @param codigo  Código del artículo.
-     * @param mensaje Mensaje de aviso.
+     * <p>Los oyentes se ejecutan en el hilo de la llamada. Durante la notificación
+     * deben evitar registrar o retirar oyentes. Si un oyente lanza una excepción,
+     * esta se propaga y se interrumpe la entrega a los oyentes restantes.</p>
+     *
+     * @param codigo código asociado a la acción, que puede ser {@code null}
+     * @param mensaje texto de la notificación, que puede ser {@code null}
+     * @throws RuntimeException si un oyente lanza una excepción de este tipo
      */
     public void notificarObservadores(String codigo, String mensaje) {
         // Si nadie está escuchando, salgo directamente y evito trabajo innecesario o errores
