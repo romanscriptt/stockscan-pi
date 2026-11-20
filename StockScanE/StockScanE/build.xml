@@ -44,6 +44,26 @@
         <delete dir="${stockscan.component.staging.dir}"/>
     </target>
 
+    <target name="javadoc-entrega" depends="init"
+            description="Genera y empaqueta el sitio HTML de JavaDoc de StockScan SGA.">
+        <fail if="stockscan.javadoc.staging.dir"
+              message="stockscan.javadoc.staging.dir se asigna automáticamente."/>
+        <mkdir dir="${dist.dir}"/>
+        <tempfile property="stockscan.javadoc.staging.dir" destdir="${java.io.tmpdir}"
+                  prefix="stockscan-javadoc-"/>
+
+        <antcall target="javadoc" inheritAll="false">
+            <param name="dist.javadoc.dir" location="${stockscan.javadoc.staging.dir}/html"/>
+            <param name="no.javadoc.preview" value="true"/>
+            <param name="javadoc.additionalparam" value="-Xdoclint:all -Werror"/>
+        </antcall>
+        <zip destfile="${stockscan.javadoc.staging.dir}/stockscan-javadoc.zip"
+             basedir="${stockscan.javadoc.staging.dir}/html" whenempty="fail"/>
+        <move file="${stockscan.javadoc.staging.dir}/stockscan-javadoc.zip"
+              todir="${dist.dir}" overwrite="true"/>
+        <delete dir="${stockscan.javadoc.staging.dir}"/>
+    </target>
+
     <!-- Compilación Java 21 con la opción release. Se conserva aunque NetBeans regenere build-impl.xml. -->
     <target depends="-init-ap-cmdline-properties,-init-source-module-properties" if="modules.supported.internal" name="-init-macrodef-javac-with-module">
         <macrodef name="javac" uri="http://www.netbeans.org/ns/j2se-project/3">
