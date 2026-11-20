@@ -1,14 +1,1 @@
-/StockScan/nbproject/private/
-/StockScan/build/
 
-# Archivos de sistema y editores
-.DS_Store
-*.code-workspace
-
-# Artefacto y directorios temporales del componente de escaneo
-/StockScanE/StockScanE/dist/stockscan-componente-*.jar
-/StockScanE/StockScanE/build/.stockscan-componente-*/
-
-# Documentación HTML generada y ZIP de entrega
-/StockScanE/StockScanE/dist/javadoc/
-/StockScanE/StockScanE/dist/stockscan-javadoc.zip
