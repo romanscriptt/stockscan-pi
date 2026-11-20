@@ -5,13 +5,18 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana de chat interno del almacén.
+ * Presenta canales y mensajes de ejemplo, junto con los controles para redactar y adjuntar.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class ChatPanel extends javax.swing.JFrame {
 
     /**
-     * Creates new form ChatPanel
+     * Prepara el listado de canales, la conversación de ejemplo y el área de redacción.
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public ChatPanel() {
         initComponents();
@@ -19,7 +24,8 @@ public class ChatPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: el ratón solo oscurece el color del botón al entrar y lo restaura al salir.
+     * Resalta los botones habilitados de navegación, envío y adjuntos
+     * mientras el puntero está sobre ellos.
      */
     private void configurarEfectosVisuales() {
         javax.swing.JButton[] botones = {
@@ -876,20 +882,40 @@ public class ChatPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al equipo.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavEquipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavEquipoActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
+    /**
+     * Reserva la acción del botón de adjuntar archivos al mensaje.
+     * La selección y el envío del adjunto están pendientes de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnAdjuntarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjuntarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdjuntarActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre el chat interno como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

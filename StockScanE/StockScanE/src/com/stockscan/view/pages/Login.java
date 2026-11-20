@@ -5,13 +5,19 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana de acceso a StockScan.
+ * Presenta los campos de correo y contraseña y los controles de acceso y recuperación.
+ * La validación de credenciales está pendiente de integración.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class Login extends javax.swing.JFrame {
 
     /**
-     * Creates new form Login
+     * Prepara el formulario de acceso y sus controles visuales.
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public Login() {
         initComponents();
@@ -19,7 +25,8 @@ public class Login extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: el ratón solo oscurece el color del botón al entrar y lo restaura al salir.
+     * Resalta los botones habilitados de inicio de sesión y recuperación
+     * mientras el puntero está sobre ellos.
      */
     private void configurarEfectosVisuales() {
         javax.swing.JButton[] botones = {btnIniciarSesion, jButton1};
@@ -223,7 +230,9 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * @param args the command line arguments
+     * Abre la pantalla de acceso como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

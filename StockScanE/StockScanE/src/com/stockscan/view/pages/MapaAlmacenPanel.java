@@ -5,13 +5,18 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana del plano bidimensional del almacén.
+ * Representa las estanterías de ejemplo mediante botones situados en el plano.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class MapaAlmacenPanel extends javax.swing.JFrame {
 
     /**
-     * Creates new form MapaAlmacenPanel
+     * Prepara el plano, sus ubicaciones y los controles de navegación.
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public MapaAlmacenPanel() {
         initComponents();
@@ -19,7 +24,8 @@ public class MapaAlmacenPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: el ratón solo oscurece el color del botón al entrar y lo restaura al salir.
+     * Cambia temporalmente el color y el cursor al pasar por botones habilitados
+     * del plano o de la navegación.
      */
     private void configurarEfectosVisuales() {
         javax.swing.JButton[] botones = {
@@ -1182,28 +1188,60 @@ public class MapaAlmacenPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al mapa.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavMapaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavMapaActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al panel de control.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavDashboardActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavDashboardActionPerformed
 
+    /**
+     * Reserva la acción al pulsar la ubicación EST-04 del plano.
+     * La consulta de los detalles de la estantería está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /**
+     * Reserva la acción al pulsar la ubicación EST-05 del plano.
+     * La consulta de los detalles de la estantería está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre el mapa del almacén como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

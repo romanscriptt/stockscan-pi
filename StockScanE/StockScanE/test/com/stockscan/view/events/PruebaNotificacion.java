@@ -2,8 +2,25 @@ package com.stockscan.view.events;
 
 import com.stockscan.view.components.ComponenteStockScan;
 
+/**
+ * Prueba manual del registro y la retirada de oyentes de
+ * {@link ComponenteStockScan}.
+ * El resultado esperado es una única notificación para el código {@code ART-02}.
+ */
 public class PruebaNotificacion {
 
+    /**
+     * Crea una instancia de la clase de prueba sin ejecutar la comprobación.
+     */
+    public PruebaNotificacion() {
+    }
+
+    /**
+     * Ejecuta la secuencia de prueba y escribe en la consola los eventos recibidos.
+     * Comprueba el disparo sin oyentes, el registro duplicado y el desregistro.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
+     */
     public static void main(String[] args) {
         ComponenteStockScan componente = new ComponenteStockScan();
 

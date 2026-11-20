@@ -5,13 +5,18 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana de preparación de etiquetas de inventario.
+ * Presenta productos de ejemplo y los controles de selección y exportación de etiquetas.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class EtiquetasPanel extends javax.swing.JFrame {
 
     /**
-     * Creates new form EtiquetasPanel
+     * Prepara la selección de productos, la vista de etiquetas y los controles de exportación.
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public EtiquetasPanel() {
         initComponents();
@@ -19,7 +24,8 @@ public class EtiquetasPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: el ratón solo oscurece el color del botón al entrar y lo restaura al salir.
+     * Resalta los botones habilitados de esta vista al pasar el puntero
+     * y recupera su color al salir.
      */
     private void configurarEfectosVisuales() {
         javax.swing.JButton[] botones = {
@@ -779,24 +785,50 @@ public class EtiquetasPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al panel de control.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavDashboardActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavDashboardActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al mapa.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavMapaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavMapaActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
+    /**
+     * Reserva el tratamiento de la selección de la caja de cartón.
+     * La actualización de la vista de etiquetas está pendiente de implementación.
+     *
+     * @param evt evento de acción de la casilla del producto
+     */
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre la preparación de etiquetas como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

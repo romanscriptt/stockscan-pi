@@ -5,15 +5,21 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana de agenda y turnos del almacén.
+ * Presenta un calendario semanal con los turnos de ejemplo de los operarios.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class AgendaPanel extends javax.swing.JFrame {
 
+    /** Botón de la agenda resaltado en la vista. */
     private javax.swing.JButton botonAgendaActivo;
 
     /**
-     * Creates new form AgendaPanel
+     * Prepara la agenda semanal y selecciona el botón «Hoy» al abrir la vista.
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public AgendaPanel() {
         initComponents();
@@ -22,7 +28,9 @@ public class AgendaPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: oscurece al pasar el ratón y marca visualmente el botón de navegación seleccionado.
+     * Resalta los botones de navegación al pasar el puntero.
+     * Al soltar el botón principal del ratón, actualiza el control de agenda resaltado.
+     * La selección visual conserva la semana de ejemplo mostrada.
      */
     private void configurarEfectosVisuales() {
         final java.awt.Color azulActivo = new java.awt.Color(27, 79, 114);
@@ -695,16 +703,30 @@ public class AgendaPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al equipo.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavEquipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavEquipoActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre la agenda y los turnos como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

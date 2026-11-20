@@ -5,15 +5,21 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana del panel de control del almacén.
+ * Muestra indicadores de ejemplo de existencias y movimientos con controles de periodo.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class DashboardPanel extends javax.swing.JFrame {
 
+    /** Botón del periodo resaltado en el panel de control. */
     private javax.swing.JButton filtroActivo;
 
     /**
-     * Creates new form Dashboard
+     * Prepara los indicadores y activa visualmente el periodo «Día».
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public DashboardPanel() {
         initComponents();
@@ -22,7 +28,9 @@ public class DashboardPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: oscurece al pasar el ratón y marca visualmente el filtro de periodo seleccionado.
+     * Resalta los controles de navegación al pasar el puntero.
+     * Al soltar el botón principal sobre un filtro habilitado, cambia el periodo resaltado.
+     * Los valores de ejemplo permanecen visibles al cambiar la selección visual.
      */
     private void configurarEfectosVisuales() {
         final java.awt.Color azulActivo = new java.awt.Color(27, 79, 114);
@@ -972,20 +980,40 @@ public class DashboardPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al mapa.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavMapaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavMapaActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al panel de control.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavDashboardActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavDashboardActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre el panel de control como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

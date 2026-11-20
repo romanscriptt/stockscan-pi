@@ -5,15 +5,21 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana de gestión del equipo del almacén.
+ * Presenta una tabla de operarios de ejemplo con un buscador y filtros de asistencia.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class EquipoPanel extends javax.swing.JFrame {
 
+    /** Botón de estado de asistencia resaltado en la vista. */
     private javax.swing.JButton filtroActivo;
 
     /**
-     * Creates new form EquipoPanel
+     * Prepara la tabla de miembros y deja resaltado el filtro «Todos».
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public EquipoPanel() {
         initComponents();
@@ -22,7 +28,9 @@ public class EquipoPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: oscurece al pasar el ratón y marca visualmente el filtro de estado seleccionado.
+     * Resalta los controles de navegación y de equipo al pasar el puntero.
+     * Al soltar el botón principal sobre un filtro habilitado, cambia el filtro resaltado.
+     * La selección visual conserva las filas de ejemplo de la tabla.
      */
     private void configurarEfectosVisuales() {
         final java.awt.Color azulActivo = new java.awt.Color(27, 79, 114);
@@ -696,24 +704,50 @@ public class EquipoPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al mapa.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavMapaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavMapaActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
+    /**
+     * Reserva la búsqueda al confirmar el texto en el campo de operarios.
+     * El filtrado de la tabla está pendiente de implementación.
+     *
+     * @param evt evento de acción del campo de búsqueda de operarios
+     */
     private void txtBuscarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarEquipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarEquipoActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al equipo.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavEquipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavEquipoActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre la gestión del equipo como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

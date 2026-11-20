@@ -5,16 +5,21 @@
 package com.stockscan.view.pages;
 
 /**
- * Vista principal de gestión de inventario y stock (StockScan SGA).
+ * Vista principal de gestión de inventario y stock de StockScan SGA.
+ * Muestra una tabla de productos de ejemplo con un buscador y controles de categoría.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class StockPanel extends javax.swing.JFrame {
 
+    /** Botón de la categoría de inventario resaltada. */
     private javax.swing.JButton filtroActivo;
 
     /**
-     * Creates new form StockPanel
+     * Prepara la tabla de productos y deja resaltada la categoría «Todos».
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public StockPanel() {
         initComponents();
@@ -23,7 +28,9 @@ public class StockPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: oscurece al pasar el ratón y marca visualmente la categoría seleccionada.
+     * Resalta los botones de navegación y de alta de producto al pasar el puntero.
+     * Al soltar el botón principal sobre una categoría habilitada, cambia la categoría resaltada.
+     * La selección visual conserva las filas de ejemplo del inventario.
      */
     private void configurarEfectosVisuales() {
         final java.awt.Color azulActivo = new java.awt.Color(27, 79, 114);
@@ -733,20 +740,40 @@ public class StockPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al mapa.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavMapaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavMapaActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
+    /**
+     * Reserva la búsqueda al confirmar un nombre o código de producto.
+     * El filtrado de la tabla está pendiente de implementación.
+     *
+     * @param evt evento de acción del campo de búsqueda de productos
+     */
     private void txtBuscarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarStockActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarStockActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre el inventario como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -5,13 +5,18 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana de alertas de inventario.
+ * Muestra un resumen de existencias bajas o agotadas y ejemplos de avisos y pedidos.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class AlertasPanel extends javax.swing.JFrame {
 
     /**
-     * Creates new form AlertasPanel
+     * Prepara el resumen, las tarjetas de alertas y sus controles de acción.
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public AlertasPanel() {
         initComponents();
@@ -19,7 +24,8 @@ public class AlertasPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: el ratón solo oscurece el color del botón al entrar y lo restaura al salir.
+     * Oscurece los botones habilitados de navegación, notificación y pedido
+     * al pasar el puntero, y recupera su color al salir.
      */
     private void configurarEfectosVisuales() {
         javax.swing.JButton[] botones = {
@@ -865,16 +871,30 @@ public class AlertasPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al mapa.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavMapaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavMapaActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre las alertas de inventario como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

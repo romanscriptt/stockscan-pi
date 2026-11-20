@@ -5,13 +5,19 @@
 package com.stockscan.view.pages;
 
 /**
+ * Ventana del historial de movimientos de inventario.
+ * Presenta una tabla de ejemplo y los controles de búsqueda y filtrado por fecha,
+ * operario y tipo de movimiento.
  *
  * @author alvarolopez
+ * @serial exclude
  */
 public class TrazabilidadPanel extends javax.swing.JFrame {
 
     /**
-     * Creates new form TrazabilidadPanel
+     * Prepara el historial de ejemplo y sus controles de consulta.
+     *
+     * @throws java.awt.HeadlessException si el entorno no admite ventanas
      */
     public TrazabilidadPanel() {
         initComponents();
@@ -19,7 +25,8 @@ public class TrazabilidadPanel extends javax.swing.JFrame {
     }
 
     /**
-     * Maqueta visual: el ratón solo oscurece el color del botón al entrar y lo restaura al salir.
+     * Resalta los botones habilitados de navegación al pasar el puntero
+     * y recupera su color al salir.
      */
     private void configurarEfectosVisuales() {
         javax.swing.JButton[] botones = {
@@ -586,24 +593,50 @@ public class TrazabilidadPanel extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Reserva la acción del botón de navegación al mapa.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavMapaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavMapaActionPerformed
 
+    /**
+     * Reserva la acción del botón de navegación al chat.
+     * El cambio de vista está pendiente de implementación.
+     *
+     * @param evt evento de acción del botón
+     */
     private void btnNavChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavChatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNavChatActionPerformed
 
+    /**
+     * Reserva la búsqueda al confirmar un lote o producto en el campo de trazabilidad.
+     * El filtrado del historial está pendiente de implementación.
+     *
+     * @param evt evento de acción del campo de búsqueda del historial
+     */
     private void txtBuscarTrazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarTrazaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarTrazaActionPerformed
 
+    /**
+     * Reserva la acción al confirmar el campo de fecha.
+     * El filtrado del historial por fecha está pendiente de implementación.
+     *
+     * @param evt evento de acción del campo de fecha
+     */
     private void txtFechaFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFilterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaFilterActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Abre el historial de movimientos como ventana independiente en el hilo de eventos de Swing.
+     *
+     * @param args argumentos de línea de comandos, que se ignoran
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
