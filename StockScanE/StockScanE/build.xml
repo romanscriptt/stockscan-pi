@@ -44,7 +44,7 @@
         <delete dir="${stockscan.component.staging.dir}"/>
     </target>
 
-    <target name="javadoc-entrega" depends="init"
+    <target name="javadoc-zip" depends="init"
             description="Genera y empaqueta el sitio HTML de JavaDoc de StockScan SGA.">
         <fail if="stockscan.javadoc.staging.dir"
               message="stockscan.javadoc.staging.dir se asigna automáticamente."/>
