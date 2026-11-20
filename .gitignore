@@ -4,3 +4,7 @@
 # Archivos de sistema y editores
 .DS_Store
 *.code-workspace
+
+# Artefacto y directorios temporales del componente de escaneo
+/StockScanE/StockScanE/dist/stockscan-componente-*.jar
+/StockScanE/StockScanE/build/.stockscan-componente-*/

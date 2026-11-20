@@ -11,6 +11,39 @@
     <description>Builds, tests, and runs the project StockScanE.</description>
     <import file="nbproject/build-impl.xml"/>
 
+    <target name="jar-componente" depends="init"
+            description="Genera el JAR reutilizable del componente de escaneo de StockScan.">
+        <property name="stockscan.component.version" value="1.0.0"/>
+        <property name="stockscan.component.jar"
+                  location="${dist.dir}/stockscan-componente-${stockscan.component.version}.jar"/>
+        <fail if="stockscan.component.staging.dir"
+              message="stockscan.component.staging.dir se asigna automáticamente."/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <tempfile property="stockscan.component.staging.dir" destdir="${build.dir}"
+                  prefix=".stockscan-componente-"/>
+        <mkdir dir="${stockscan.component.staging.dir}/classes"/>
+
+        <javac srcdir="${src.dir}" destdir="${stockscan.component.staging.dir}/classes"
+               encoding="${source.encoding}" release="${javac.release}" includeantruntime="false">
+            <include name="com/stockscan/view/components/ComponenteStockScan.java"/>
+            <include name="com/stockscan/view/events/StockScanEvent.java"/>
+            <include name="com/stockscan/view/events/StockScanListener.java"/>
+        </javac>
+
+        <jar destfile="${stockscan.component.staging.dir}/componente.jar"
+             basedir="${stockscan.component.staging.dir}/classes" includes="**/*.class"
+             whenmanifestonly="fail">
+            <manifest>
+                <attribute name="Implementation-Title" value="StockScan SGA - Componente de escaneo"/>
+                <attribute name="Implementation-Version" value="${stockscan.component.version}"/>
+            </manifest>
+        </jar>
+        <move file="${stockscan.component.staging.dir}/componente.jar"
+              tofile="${stockscan.component.jar}" overwrite="true"/>
+        <delete dir="${stockscan.component.staging.dir}"/>
+    </target>
+
     <!-- Compilación Java 21 con la opción release. Se conserva aunque NetBeans regenere build-impl.xml. -->
     <target depends="-init-ap-cmdline-properties,-init-source-module-properties" if="modules.supported.internal" name="-init-macrodef-javac-with-module">
         <macrodef name="javac" uri="http://www.netbeans.org/ns/j2se-project/3">
